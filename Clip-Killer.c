@@ -39,7 +39,7 @@ if (IsClipboardFormatAvailable(CF_TEXT)) {
                 return FALSE;
               } 
               char *buffer = (char*)malloc(1025 * sizeof(char));
-              snprintf(buffer, sizeof(buffer), "%s\n", clipData);
+              snprintf(buffer, 1024, "%s\n", clipData);
              size_t size = fwrite(buffer, 1, strlen(buffer), file);
              if (size > 0) {
                 printf("Data written to file %llu\n", size);
@@ -59,7 +59,7 @@ if (IsClipboardFormatAvailable(CF_TEXT)) {
             } else { 
                 printf("Created new file\n");
               char *buffer = (char*)malloc(1025 * sizeof(char));
-              snprintf(buffer, sizeof(buffer), "%s\n", clipData);
+              snprintf(buffer, 1024, "%s\n", clipData);
              size_t size = fwrite(buffer, 1, strlen(buffer), file);
              if (size > 0) {
                 printf("Data written to file %llu\n", size);
